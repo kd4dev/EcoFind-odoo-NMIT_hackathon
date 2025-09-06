@@ -18,8 +18,6 @@ export default function Header() {
     return () => window.removeEventListener("storage", checkAuth);
   }, []);
 
-
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("signupSuccess");
@@ -39,6 +37,14 @@ export default function Header() {
             />
           </Link>
           <div className="flex items-center lg:order-2">
+            {isLoggedIn && (
+              <Link
+                to="/cart"
+                className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none flex items-center"
+              >
+                🛒 Cart
+              </Link>
+            )}
             {isLoggedIn ? (
               <>
                 <Link
@@ -47,6 +53,7 @@ export default function Header() {
                 >
                   Profile
                 </Link>
+
                 <button
                   onClick={handleLogout}
                   className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"

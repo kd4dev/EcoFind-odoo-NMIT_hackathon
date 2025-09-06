@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "Backend": "node --watch index.js",
-    "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:push": "npx drizzle-kit push",
+    "db:studio": "npx drizzle-kit studio"
   },
   "keywords": [],
   "author": "",
