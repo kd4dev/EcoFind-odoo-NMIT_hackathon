@@ -2,7 +2,7 @@ import { getUserByEmail ,createUser} from "../services/user.service.js";
 import { hashPasswordWithSalt } from "../utils/hash.js";
 import { createUserToken } from "../utils/token.js";
 import db from '../db/index.js'
-import { cartTable,productsTable } from "../model/index.js"; 
+import { productsTable } from "../model/index.js"; 
 import {
   signupPostRequestSchema,
   loginPostRequestSchema,
