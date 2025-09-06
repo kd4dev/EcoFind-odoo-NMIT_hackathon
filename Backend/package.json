@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch index.js",
+    "Backend": "node --watch index.js",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio"
   },
