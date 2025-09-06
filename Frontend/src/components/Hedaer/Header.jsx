@@ -4,28 +4,7 @@ import axios from 'axios';
 
 
 export default function Header() {  
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
-
-  // Page load pe check karo agar token hai
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      // Optional: backend se user info fetch
-      axios
-        .get("http://localhost:8000/user/me")
-        .then((res) => setUser(res.data))
-        .catch(() => setUser(null));
-    }
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    delete axios.defaults.headers.common["Authorization"];
-    setUser(null);
-    navigate("/login");
-  };
+ 
   return (
     <header className="shadow sticky z-50 top-0">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -66,6 +45,18 @@ export default function Header() {
                   }
                 >
                   Home
+                </NavLink>
+              </li>
+                <li>
+                <NavLink
+                  to="/Products"
+                  className={({ isActive }) =>
+                    `block py-2 pr-4 pl-3 duration-200 ${
+                      isActive ? "text-orange-700" : "text-gray-700"
+                    } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                  }
+                >
+                  Products
                 </NavLink>
               </li>
               <li>
