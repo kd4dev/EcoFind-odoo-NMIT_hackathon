@@ -1,1 +1,1 @@
-# EcoFind-odoo-MNIT_hackathon
+# EcoFind-odoo-NMIT_hackathon
