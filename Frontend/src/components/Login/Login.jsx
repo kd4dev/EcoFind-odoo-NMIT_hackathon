@@ -15,6 +15,7 @@ const handleSubmit = async (e) => {
     const res = await axios.post("http://localhost:8000/user/login", loginData);
     
  localStorage.setItem("token", res.data.token);
+ window.dispatchEvent(new Event("storage"));
 
     axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`;
    
