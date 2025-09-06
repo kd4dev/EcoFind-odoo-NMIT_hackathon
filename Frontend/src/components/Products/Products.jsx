@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Products() {
   const products = [
-    { id: 1, name: "Product 1", price: "$25", img: "https://via.placeholder.com/150" },
-    { id: 2, name: "Product 2", price: "$35", img: "https://via.placeholder.com/150" },
-    { id: 3, name: "Product 3", price: "$45", img: "https://via.placeholder.com/150" },
+    { id: 1, name: "Mobile Phone", price: "15000", img: "https://via.placeholder.com/150" },
+    { id: 2, name: "Tablet", price: "25000", img: "https://via.placeholder.com/150" },
+    { id: 3, name: "Tv", price: "55000", img: "https://via.placeholder.com/150" },
   ];
 
   return (
