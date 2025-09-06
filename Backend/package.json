@@ -21,6 +21,7 @@
     "tsx": "^4.20.5"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.5",
     "express": "~4.21.2",

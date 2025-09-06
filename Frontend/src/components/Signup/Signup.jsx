@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Signup() {
-  return (
+    const [formData, setFormData] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+    });
+    const navigate = useNavigate();
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const res = await axios.post("http://localhost:8000/user/signup", formData);
+        console.log("Signup Success:", res.data);
+         navigate("/"); 
+      } catch (err) {
+        console.error("Signup Error:", err.response?.data || err.message);
+      }
+    };
+    return (
     <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
       <div className="max-w-4xl mx-auto sm:px-6 lg:px-8">
         <div className="mt-8 overflow-hidden">
@@ -17,7 +38,10 @@ export default function Signup() {
             </div>
 
             {/* Signup Form */}
-            <form className="p-6 flex flex-col justify-center">
+            <form
+              onSubmit={handleSubmit}
+              className="p-6 flex flex-col justify-center"
+            >
               {/* First Name */}
               <div className="flex flex-col mt-2">
                 <label htmlFor="firstname" className="hidden">
@@ -28,6 +52,10 @@ export default function Signup() {
                   name="firstname"
                   id="firstname"
                   placeholder="First Name"
+                  value={formData.firstname}
+                  onChange={(e) =>
+                    setFormData({ ...formData, firstname: e.target.value })
+                  }
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -42,6 +70,10 @@ export default function Signup() {
                   name="lastname"
                   id="lastname"
                   placeholder="Last Name (Optional)"
+                  value={formData.lastname}
+                  onChange={(e) =>
+                    setFormData({ ...formData, lastname: e.target.value })
+                  }
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -56,6 +88,10 @@ export default function Signup() {
                   name="email"
                   id="email"
                   placeholder="Email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                 />
               </div>
@@ -70,6 +106,10 @@ export default function Signup() {
                   name="password"
                   id="password"
                   placeholder="Password"
+                  value={formData.password}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
+                  }
                   className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                 />
               </div>

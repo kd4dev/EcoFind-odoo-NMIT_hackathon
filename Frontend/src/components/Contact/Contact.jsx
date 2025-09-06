@@ -90,13 +90,13 @@ export default function Contact() {
                         <form className="p-6 flex flex-col justify-center">
                             <div className="flex flex-col">
                                 <label for="name" className="hidden">
-                                    Full Name
+                                    First Name
                                 </label>
                                 <input
                                     type="name"
                                     name="name"
                                     id="name"
-                                    placeholder="Full Name"
+                                    placeholder="First Name"
                                     className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
                                 />
                             </div>
